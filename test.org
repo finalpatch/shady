@@ -1,5 +1,5 @@
 * A simple Mandelbrot set shader
-#+BEGIN_SRC glsl :file mandel.png
+#+BEGIN_SRC glsl :file img/mandel.png
   vec3 mandel(vec2 z0) {
       float k = 0.0;
       vec2 z = vec2(0.0);
@@ -26,8 +26,11 @@
   }
 #+END_SRC
 
+#+RESULTS:
+[[file:img/mandel.png]]
+
 * Wolf 128 shader
-#+BEGIN_SRC glsl :file wolf128.png
+#+BEGIN_SRC glsl :file img/wolf128.png
   void main() {
       vec2 uv = gl_FragCoord.xy / iResolution.xy;
       uint x = uint(uv.x * 320.0);
@@ -54,8 +57,11 @@
   }
 #+END_SRC
 
+#+RESULTS:
+[[file:img/wolf128.png]]
+
 * Ray marched shapes
-#+BEGIN_SRC glsl :file shapes.png
+#+BEGIN_SRC glsl :file img/shapes.png
   const float epsilon = 1e-6;
   const float PI = 3.14159265358979323846;
   const float pov = PI/10.0;
@@ -165,3 +171,6 @@
       fragColor = vec4(march(ray), 1.0);
   }
 #+END_SRC
+
+#+RESULTS:
+[[file:img/shapes.png]]
