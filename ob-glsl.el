@@ -1,5 +1,9 @@
 (require 'ob)
 
+(defvar shady-path
+  (let ((exec-path (cons "." exec-path)))
+    (executable-find "shady")))
+
 (defvar org-babel-default-header-args:glsl
   '((:results . "file") (:exports . "results"))
   "Default arguments to use when evaluating a glsl source block.")
@@ -17,7 +21,7 @@ This function is called by `org-babel-execute-src-block'."
     (with-temp-file in-file
       (insert (org-babel-expand-body:glsl body params)))
     (org-babel-eval
-     (concat "c:/Users/fengli/code/shady/shady.exe"
+     (concat shady-path
 	     " -s " (org-babel-process-file-name in-file)
 	     " -o " (org-babel-process-file-name out-file)) "")
     nil))
